@@ -675,12 +675,12 @@ func (d *InMAP) checkModelVars(m Mechanism, g ...string) error {
 	for _, n := range outputOps {
 		mapOutputOps[n] = struct{}{}
 	}
-	fmt.Println("-----------Hello, World!---------")
-	fmt.Println("io line 679: outputVariables map")
-	fmt.Println(g)
-	for _, v := range g {
 
+	for _, v := range g {
 		if _, ok := mapOutputOps[v]; !ok {
+			fmt.Println("-----------Hello, World!---------")
+			fmt.Println("io line 679: outputVariables map")
+			fmt.Println(g)
 			return fmt.Errorf("inmap: undefined variable name '%s'", v)
 		}
 	}
