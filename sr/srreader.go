@@ -204,6 +204,8 @@ func (sr *Reader) Variables(names ...string) (map[string][]float64, error) {
 	r := make(map[string][]float64)
 	var m simplechem.Mechanism
 	for _, name := range names {
+		fmt.Println("Line 207: srreader.go")
+		fmt.Println(name)
 		n := make(map[string]string)
 		n[name] = name
 		if i, ok := sr.d.PopIndices[name]; ok {
