@@ -386,6 +386,8 @@ func (sr *Reader) SetConcentrations(c *Concentrations) error {
 // attempts to output gas-phase equations will result in all zeros.
 func (sr *Reader) Output(shapefilePath string, variables map[string]string, funcs map[string]govaluate.ExpressionFunction, sRef *proj.SR) error {
 	m := simplechem.Mechanism{}
+	fmt.Println("srreader line 389: outputVariables/variables map")
+	fmt.Println(variables)
 	o, err := inmap.NewOutputter(shapefilePath, false, variables, funcs, m)
 	if err != nil {
 		return err

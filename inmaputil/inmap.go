@@ -178,7 +178,8 @@ func Run(CobraCommand *cobra.Command, LogFile string, OutputFile string, OutputA
 		wg.Wait()
 		logfile.Close()
 	}()
-
+	fmt.Println("inmap.go line 181: outputVariables/variables map")
+	fmt.Println(OutputVariables)
 	o, err := inmap.NewOutputter(upload.maybeUpload(OutputFile), OutputAllLayers, OutputVariables, nil, m)
 	if err != nil {
 		return err

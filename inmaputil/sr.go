@@ -158,6 +158,8 @@ func SRPredict(EmissionUnits, SROutputFile, OutputFile string, outputVariables m
 		return upload.err
 	}
 
+	fmt.Println("Srpredict line 161: outputVariables map")
+	fmt.Println(outputVariables)
 	if err = r.Output(o, outputVariables, nil, vgsr); err != nil {
 		return err
 	}
