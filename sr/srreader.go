@@ -143,6 +143,9 @@ func NewReader(r cdf.ReaderWriterAt) (*Reader, error) {
 	sr.d.PopIndices = make(map[string]int)
 	var popI int
 	for _, v := range sr.File.Header.Variables() {
+		fmt.Println("--------------Line 146: srreader.go--------")
+		fmt.Println(v)
+		fmt.Println()
 		if sr.File.Header.Dimensions(v)[0] != "allcells" {
 			continue // We're only interested in the InMAP variables.
 		}
@@ -151,6 +154,9 @@ func NewReader(r cdf.ReaderWriterAt) (*Reader, error) {
 			popI++
 		}
 	}
+	fmt.Println("--------------Line 157: srreader.go--------")
+	fmt.Println(sr.d.PopIndices)
+	fmt.Println()
 	for _, c := range cells {
 		c.PopData = make([]float64, len(sr.d.PopIndices))
 	}
@@ -204,7 +210,7 @@ func (sr *Reader) Variables(names ...string) (map[string][]float64, error) {
 	r := make(map[string][]float64)
 	var m simplechem.Mechanism
 	for _, name := range names {
-		fmt.Println("Line 207: srreader.go")
+		fmt.Println("--------------Line 207: srreader.go--------")
 		fmt.Println(name)
 		n := make(map[string]string)
 		n[name] = name
