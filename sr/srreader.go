@@ -150,6 +150,10 @@ func NewReader(r cdf.ReaderWriterAt) (*Reader, error) {
 			continue // We're only interested in the InMAP variables.
 		}
 		if _, ok := cellVarMap[v]; !ok {
+			if v == "MortalityRate" {
+				v = "allcause"
+				fmt.Println("CHANGED VARIABLE NAME!!!!!!!!!!!!!")
+			}
 			sr.d.PopIndices[v] = popI
 			popI++
 		}
